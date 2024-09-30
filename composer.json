@@ -1,0 +1,24 @@
+{
+    "name": "dikki/clipro-core",
+    "description": "Core of the CLIPRO cli framework. Not to be used directly.",
+    "homepage": "https://github.com/namankumar80510/clipro-core",
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true
+    },
+    "autoload": {
+        "psr-4": {
+            "Dikki\\Clipro\\Core\\": "src/"
+        },
+        "files": [
+            "src/Functions.php"
+        ]
+    },
+    "require": {
+        "dikki/config": "^2.0",
+        "dikki/dotenv": "^1.0",
+        "league/climate": "^3.8",
+        "nette/utils": "^4.0"
+    }
+}
