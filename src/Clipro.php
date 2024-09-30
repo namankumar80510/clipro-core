@@ -24,7 +24,9 @@ class Clipro
 
         # register commands
         $appCommandFiles = Finder::findFiles('*Command.php')->from($commandDir);
-        $libraryCommandFiles = Finder::findFiles('*Command.php')->from(__DIR__ . '/Commands');
+        $libraryCommandFiles = Finder::findFiles('*Command.php')
+            ->from(__DIR__ . '/Commands')
+            ->exclude("AbstractCommand");
 
         foreach ($libraryCommandFiles as $file) {
             $command = "\\Dikki\\Clipro\\Core\\Commands\\" . $file->getBasename('.php');
@@ -88,7 +90,7 @@ class Clipro
     {
         // app welcome
         echo "\033[" . 34 . "m" . config("app.name", "Clipro") . PHP_EOL . "\033[0m";
-        echo "\033[" . 32 . "m" . config("app.version". "0.0.1") . PHP_EOL . "\033[0m";
+        echo "\033[" . 32 . "m" . config("app.version" . "0.0.1") . PHP_EOL . "\033[0m";
         echo "Welcome to !" . PHP_EOL;
         echo "-------------------------------------" . PHP_EOL;
         echo PHP_EOL;
