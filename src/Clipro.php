@@ -11,16 +11,19 @@ use Nette\Utils\Finder;
 class Clipro
 {
     private static string $configDir;
+    private static string $commandDir;
     private array $commands = [];
     private Config $config;
 
     public function __construct(
         string $configDir,
-        private string $commandDir
+        string $commandDir
     ) {
         self::$configDir = $configDir;
+        self::$commandDir = $commandDir;
 
         if (!file_exists(self::getConfigDir())) die("Config dir does not exist.");
+        if (!file_exists(self::getCommandDir())) die("Command dir does not exist.");
 
         # config
         $this->config = new Config(self::getConfigDir());
@@ -43,6 +46,11 @@ class Clipro
     public static function getConfigDir(): string
     {
         return self::$configDir;
+    }
+
+    public static function getCommandDir(): string
+    {
+        return self::$commandDir;
     }
 
     /**
