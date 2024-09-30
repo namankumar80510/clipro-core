@@ -10,12 +10,18 @@ abstract class Base implements CommandInterface
 {
     protected CLImate $cli;
 
-    public function __construct()
+    public function __construct(CLImate $cli = null)
     {
-        $this->cli = new CLImate();
+        $this->cli = $cli ?? new CLImate();
     }
 
     abstract public function getName(): string;
 
-    abstract public function execute(array $args): void;
+    /**
+     * Execute the command.
+     *
+     * @param array<string, mixed> $args
+     * @return int
+     */
+    abstract public function execute(array $args): int;
 }
