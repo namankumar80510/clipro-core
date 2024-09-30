@@ -6,7 +6,7 @@ namespace Dikki\Clipro\Core\Commands;
 
 use League\CLImate\CLImate;
 
-abstract class AbstractCommand implements CommandInterface
+abstract class Base implements CommandInterface
 {
     protected CLImate $cli;
 
